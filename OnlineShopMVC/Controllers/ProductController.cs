@@ -69,6 +69,13 @@ namespace OnlineShopMVC.Controllers
 			IEnumerable<Product> products = _db.Products;
 			return View(products);
 		}
+
+		public IActionResult ProductLeftSideBar(Guid id)
+		{
+			Product product = _db.Products.FirstOrDefault(x => x.ProductId == id);
+			return View(product);
+		}
+
 		[HttpPost]
 		public async Task<IActionResult> Edit([Bind("ProductId,ProductName, Categories, Slug,SortDescription,Colors,Sizes, Price, Quantity, FullDetail,ProductTags, ImageData")] ProductViewModel product)
 		{

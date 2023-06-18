@@ -35,7 +35,7 @@ namespace OnlineShopMVC
 
 			app.MapControllerRoute(
 				name: "default",
-				pattern: "{controller=Admin}/{action=Index}");
+				pattern: "{controller=Shopping}/{action=Index}");
 
 			app.Run();
 		}

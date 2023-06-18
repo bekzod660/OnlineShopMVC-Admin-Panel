@@ -1,0 +1,83 @@
+﻿
+@{
+   // Layout = null;
+}
+@* For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860 *@ @{
+    <!-- Ec breadcrumb start -->
+    <div class="sticky-header-next-sec  ec-breadcrumb section-space-mb">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row ec_breadcrumb_inner">
+                        <div class="col-md-6 col-sm-12">
+                            <h2 class="ec-breadcrumb-title">Register</h2>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <!-- ec-breadcrumb-list start -->
+                            <ul class="ec-breadcrumb-list">
+                                <li class="ec-breadcrumb-item">
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li class="ec-breadcrumb-item active">Register</li>
+                            </ul>
+                            <!-- ec-breadcrumb-list end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Ec breadcrumb end -->
+    <!-- Start Register -->
+    <section class="ec-page-content section-space-p">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="section-title">
+                        <h2 class="ec-bg-title">Register</h2>
+                        <h2 class="ec-title">Register</h2>
+                        <p class="sub-title mb-3">Best place to buy and sell digital products</p>
+                    </div>
+                </div>
+                <div class="ec-register-wrapper">
+                    <div class="ec-register-container">
+                        <div class="ec-register-form">
+                            <form asp-action="Register" asp-controller="User" method="post">
+                                <span class="ec-register-wrap ec-register-half">
+                                    <label>First Name*</label>
+                                    <input type="text" name="firstname" placeholder="Enter your first name" required />
+                                </span>
+                                <span class="ec-register-wrap ec-register-half">
+                                    <label>Last Name*</label>
+                                    <input type="text" name="lastname" placeholder="Enter your last name" required />
+                                </span>
+                                <span class="ec-register-wrap ec-register-half">
+                                    <label>Email*</label>
+                                    <input type="email" name="email" placeholder="Enter your email address" required />
+                                </span>
+                                <span class="ec-register-wrap ec-register-half">
+                                    <label>Password*</label>
+                                    <input type="password" name="password" placeholder="Enter your Password" required />
+                                </span>
+                                <span class="ec-register-wrap ec-register-half">
+                                    <label>Phone Number*</label>
+                                    <input  type="text"  name="phonenumber" placeholder="+998 __ ___-__-__" required />
+                                </span>
+                                <span class="ec-register-wrap ec-register-half">
+                                    <label>Gender*</label><br>
+                                     <label><input type="radio" name="gender" value="male" required> Male</label>
+                                    <label><input type="radio" name="gender" value="female" required> Female</label><br>                                   
+                                </span>
+                                <span class="ec-register-wrap ec-register-btn">
+                                    <button class="btn btn-primary" type="submit">Register</button>
+                                </span>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Register -->
+}

@@ -433,8 +433,9 @@ function ecCheckCookie()
 	});
 
     /*----------------------------- Sidekka And SideMenu -----------------------------------*/
-    $("body").on("click", ".add-to-cart", function(){
+    $("body").on("click", ".add-to-cart", function(event){
 
+        var clickedButton = $(event.currentTarget); // Bosilgan tugmani olish
         $(".ec-cart-float").fadeIn();
 
         var count = $(".cart-count-lable").html();        
@@ -451,7 +452,7 @@ function ecCheckCookie()
         
         // get an image url
         var img_url = $(this).parents().parents().children(".image").find(".main-image").attr("src");
-        var p_name = $(this).parents().parents().parents().children(".ec-pro-content").children("h5").children("a").html();        
+        var p_name = clickedButton.parents().parents().parents().children(".ec-pro-content").children("h5").children("a").html();        
         var p_price = $(this).parents().parents().parents().children(".ec-pro-content").children(".ec-price").children(".new-price").html();
         
         var p_html = '<li>'+
@@ -1326,8 +1327,8 @@ function ecCheckCookie()
 
     $(document).ready(function(){
         $("button.add-to-cart").click(function() {
-            //$("#addtocart_toast").addClass("show");
-            // setTimeout(function(){ $("#addtocart_toast").removeClass("show") }, 3000);
+            $("#addtocart_toast").addClass("show");
+             setTimeout(function(){ $("#addtocart_toast").removeClass("show") }, 3000);
         });
         $(".ec-btn-group.wishlist").click(function() {
         var isWishlist = $(this).hasClass("active");
