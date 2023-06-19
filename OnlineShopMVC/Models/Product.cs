@@ -3,6 +3,7 @@
 	public class Product
 	{
 		public Guid ProductId { get; set; }
+		public string Categories { get; set; }
 		public string ProductName { get; set; }
 		public string Slug { get; set; }
 		public string SortDescription { get; set; }
@@ -14,7 +15,6 @@
 		public string ProductTags { get; set; }
 		public string[] ImageData { get; set; }
 
-		public string[] Categories { get; set; }
 		//public List<Review>? Reviews { get; set; }
 	}
 }

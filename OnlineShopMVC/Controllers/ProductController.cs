@@ -54,7 +54,7 @@ namespace OnlineShopMVC.Controllers
 					Price = product.Price,
 					ProductTags = product.ProductTags,
 					Quantity = product.Quantity,
-					Categories = product.Categories.ToArray(),
+					Categories = product.Categories,
 					FullDetail = product.FullDetail,
 					ImageData = imagePath.ToArray()
 				};
@@ -101,7 +101,7 @@ namespace OnlineShopMVC.Controllers
 				_product.ProductName = product.ProductName;
 				_product.Slug = product.Slug;
 				_product.ProductTags = product.ProductTags;
-				_product.Categories = product.Categories.ToArray();
+				_product.Categories = product.Categories;
 				_product.Colors = product.Colors.ToArray();
 				_product.Price = product.Price;
 				_product.Quantity = product.Quantity;

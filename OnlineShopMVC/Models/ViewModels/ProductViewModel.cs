@@ -6,6 +6,7 @@ namespace OnlineShopMVC.Models.ViewModels
     {
         public Guid ProductId { get; set; }
         [Required(ErrorMessage = "Nom kiriting.")]
+        [StringLength(maximumLength: 5, ErrorMessage = "Uzuun bo'lib ketdi")]
         [Display(Name = "ProductName")]
         public string ProductName { get; set; }
         public string Slug { get; set; }
@@ -19,7 +20,7 @@ namespace OnlineShopMVC.Models.ViewModels
         public int Quantity { get; set; }
         public string FullDetail { get; set; }
         public string ProductTags { get; set; }
-        public string[] Categories { get; set; }
+        public string Categories { get; set; }
         // public List<Review> Reviews { get; set; }
         [Required(ErrorMessage = "Rasm tanlang")]
         [Display(Name = "Admission Date")]

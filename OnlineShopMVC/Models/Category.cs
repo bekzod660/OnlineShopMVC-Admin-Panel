@@ -1,11 +1,10 @@
 ﻿namespace OnlineShopMVC.Models
 {
-    public class Category
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public List<Category> Categories { get; set; }
-        public List<Review> Reviews { get; set; }
-    }
+	public class Category
+	{
+		public Guid Id { get; set; }
+		public string Name { get; set; }
+		public string Description { get; set; }
+		public ICollection<Product> Products { get; set; }
+	}
 }
