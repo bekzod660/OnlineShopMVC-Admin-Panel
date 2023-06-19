@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OnlineShopMVC.Models;
+using OnlineShopMVC.Models.ViewModels;
 
 namespace OnlineShopMVC.Controllers
 {
@@ -14,7 +15,7 @@ namespace OnlineShopMVC.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Login([FromForm] UserViewModel user)
+        public IActionResult Login([FromForm] UserLoginViewModel user)
         {
             return View();
         }

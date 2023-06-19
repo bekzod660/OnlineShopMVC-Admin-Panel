@@ -1,4 +1,5 @@
-﻿@{
+﻿@model OnlineShopMVC.Models.ViewModels.ProductViewModel
+@{
     Layout = "_LayoutAdmin";
 }<!-- PAGE WRAPPER -->
 <div class="ec-page-wrapper">
@@ -34,11 +35,11 @@
 										<div class="ec-vendor-main-img">
 											<div class="avatar-upload">
 												<div class="avatar-edit">
-													<input type='file' form="Bekzod" name="ImageData" asp-action="ProductCreate" asp-controller="Product" id="imageUpload" class="ec-image-upload"
-														   accept=".png, .jpg, .jpeg" />
-													<label for="imageUpload">
+													<input type='file' form="Bekzod" name="ImageData" asp-action="ProductCreate" asp-controller="Product" id="imageUpload" class="ec-image-upload"/>
+													<label  for="imageUpload">
+														<span asp-validation-for="ImageData" class="text-danger"> </span>
 														<img src="~/admin/img/icons/edit.svg"
-															 class="svg_img header_svg" alt="edit" />
+														class="svg_img header_svg" alt="edit" />
 													</label>
 												</div>
 												<div class="avatar-preview ec-preview">
@@ -166,8 +167,9 @@
 									<div class="ec-vendor-upload-detail">
 										<form asp-action="ProductCreate" id="Bekzod" asp-controller="Product" enctype="multipart/form-data" class="row g-3">
 											<div class="col-md-6">
+												<span asp-validation-for="ProductName" class="text-danger" > </span>												
 												<label for="inputEmail4" class="form-label">Product name</label>
-												<input type="text" class="form-control slug-title" name="ProductName" id="inputEmail4">
+												<input type="text" onerror="Xatoo" minlength="4" class="form-control slug-title" name="ProductName" id="inputEmail4">
 											</div>
 											<div class="col-md-6">
 												<label class="form-label">Select Categories</label>
@@ -243,6 +245,7 @@
 														)
 													</span>
 												</label>
+												<span asp-validation-for="Price" class="text-danger"> </span>
 												<input type="number" class="form-control" name="Price" id="price1">
 											</div>
 											<div class="col-md-6">

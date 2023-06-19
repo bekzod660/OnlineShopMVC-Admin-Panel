@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OnlineShopMVC.Data;
+using OnlineShopMVC.Filters;
 using OnlineShopMVC.Models;
+using OnlineShopMVC.Models.ViewModels;
 
 namespace OnlineShopMVC.Controllers
 {
@@ -24,9 +26,11 @@ namespace OnlineShopMVC.Controllers
 			return View();
 		}
 		[HttpPost]
+		[ExtensionValidation(new[] { "jpeg" })]
+		//[ValidateAntiForgeryToken]
 		public async Task<IActionResult> ProductCreate(ProductViewModel product)
 		{
-			if (product.ImageData != null && product.ImageData.Length > 0)
+			if (ModelState.IsValid)
 			{
 				List<string> imagePath = new List<string>();
 				for (int i = 0; i < product.ImageData.Length; i++)
@@ -43,14 +47,14 @@ namespace OnlineShopMVC.Controllers
 				{
 					ProductId = new Guid(),
 					ProductName = product.ProductName,
-					Sizes = product.Sizes,
-					Colors = product.Colors,
+					Sizes = product.Sizes.ToArray(),
+					Colors = product.Colors.ToArray(),
 					Slug = product.Slug,
 					SortDescription = product.SortDescription,
 					Price = product.Price,
 					ProductTags = product.ProductTags,
 					Quantity = product.Quantity,
-					Categories = product.Categories,
+					Categories = product.Categories.ToArray(),
 					FullDetail = product.FullDetail,
 					ImageData = imagePath.ToArray()
 				};
@@ -97,8 +101,8 @@ namespace OnlineShopMVC.Controllers
 				_product.ProductName = product.ProductName;
 				_product.Slug = product.Slug;
 				_product.ProductTags = product.ProductTags;
-				_product.Categories = product.Categories;
-				_product.Colors = product.Colors;
+				_product.Categories = product.Categories.ToArray();
+				_product.Colors = product.Colors.ToArray();
 				_product.Price = product.Price;
 				_product.Quantity = product.Quantity;
 				_product.FullDetail = product.FullDetail;
@@ -126,7 +130,7 @@ namespace OnlineShopMVC.Controllers
 				ProductId = employee.ProductId,
 				ProductName = employee.ProductName,
 				FullDetail = employee.FullDetail,
-				Sizes = employee.Sizes,
+				Sizes = employee.Sizes.ToArray(),
 				Slug = employee.Slug,
 				Price = employee.Price,
 				Quantity = employee.Quantity
