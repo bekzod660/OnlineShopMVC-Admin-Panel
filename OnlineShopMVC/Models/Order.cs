@@ -3,9 +3,9 @@
     public class Order
     {
         public Guid Id { get; set; }
-        public Guid UserId { get; set; }
+        // public Guid UserId { get; set; }
         public User User { get; set; } // Reference to the associated user
-        public ICollection<Cart> Items { get; set; }
+        public ICollection<Product>? Products { get; set; }
         public decimal TotalPrice { get; set; }
         public string ShippingAddress { get; set; }
         public string PaymentMethod { get; set; }

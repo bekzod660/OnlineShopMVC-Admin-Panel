@@ -18,11 +18,11 @@ namespace OnlineShopMVC.Filters
             ProductViewModel productViewModel = validationContext.ObjectInstance as ProductViewModel;
             if (productViewModel1 != null)
             {
-                //var extension = Path.GetExtension(productViewModel.ImageData[0].FileName);
-                //if (!_extension.Contains(extension.ToLower()))
-                //{
-                //    return new ValidationResult($"This photo extension is not allowed");
-                //}
+                var extension = Path.GetExtension(productViewModel.ImageData[0].FileName);
+                if (!_extension.Contains(extension.ToLower()))
+                {
+                    return new ValidationResult($"This photo extension is not allowed");
+                }
                 if (productViewModel1.ProductName.Length > 10)
                 {
                     return new ValidationResult($"This photo extension is not allowed");

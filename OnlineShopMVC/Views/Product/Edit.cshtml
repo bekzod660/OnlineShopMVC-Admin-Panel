@@ -171,7 +171,6 @@
 											
 											
 											<div class="col-md-6">
-												@*<label asp-for="ProductId" class="form-label"></label>*@
 												<input type="hidden" class="form-control slug-title" value="@Model.ProductId" asp-for="ProductId" id="inputEmail4">
 												<label asp-for="ProductName" class="form-label">Product name</label>
 												<input type="text" class="form-control slug-title" asp-for="ProductName" id="inputEmail4">
@@ -194,15 +193,6 @@
 												</select>
 											</div>
 											<div class="col-md-12">
-												<label asp-for="Slug" for="slug" class="col-12 col-form-label">Slug</label>
-												<div class="col-12">
-													<input id="slug" asp-for="Slug" name="Slug" class="form-control here set-slug" type="text">
-												</div>
-											</div>
-											<div class="col-md-12">
-												<label asp-for="SortDescription" class="form-label">Sort Description</label>
-												<textarea asp-for="SortDescription" class="form-control" name="SortDescription" rows="2"></textarea>
-											</div>
 											<div class="col-md-4 mb-25">
 												<label asp-for="Colors" class="form-label">Colors</label>
 												<input  type="color" class="form-control form-control-color"

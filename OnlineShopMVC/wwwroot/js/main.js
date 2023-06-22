@@ -454,7 +454,7 @@ function ecCheckCookie()
         var img_url = $(this).parents().parents().children(".image").find(".main-image").attr("src");
         var p_name = clickedButton.parents().parents().parents().children(".ec-pro-content").children("h5").children("a").html();        
         var p_price = $(this).parents().parents().parents().children(".ec-pro-content").children(".ec-price").children(".new-price").html();
-        
+       
         var p_html = '<li>'+
                         '<a href="product-left-sidebar.html" class="sidekka_pro_img"><img src="'+ img_url +'" alt="product"></a>'+
                         '<div class="ec-pro-content">'+
@@ -467,7 +467,7 @@ function ecCheckCookie()
                         '</div>'+
                     '</li>';
 
-        $('.eccart-pro-items').append(p_html);    
+        $('.eccart-pro-items').append(p_html).;    
         
     });
 

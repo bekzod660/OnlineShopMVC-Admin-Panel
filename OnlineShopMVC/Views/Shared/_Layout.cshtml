@@ -1,16 +1,23 @@
-﻿<!--=========================================================
-    Item Name: Ekka - Ecommerce HTML Template + Admin Dashboard.
-    Author: ashishmaraviya
-    Version: 3.4
-    Copyright 2023
-    Author URI: https://themeforest.net/user/ashishmaraviya
- ============================================================-->
+﻿
+@using Microsoft.AspNetCore.Identity
+@using OnlineShopMVC.Models
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@using OnlineShopMVC.Areas.Identity.Pages.Account
 <!DOCTYPE html>
 <html lang="en">
 
 
 <!-- Mirrored from maraviyainfotech.com/projects/ekka/ekka-v34/ekka-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 13 Jun 2023 12:05:28 GMT -->
 <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - IdentityTest</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/IdentityTest.styles.css" asp-append-version="true" />
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -47,13 +54,13 @@
 </head>
 
     <body> 
-      <div id="ec-overlay">
+     @* <div id="ec-overlay">
         <div class="ec-ellipsis">
             <div></div>
             <div></div>
             <div></div>
             <div></div>
-        </div>
+        </div>*@
     </div>
     <!-- Header start  -->
     <header class="ec-header">
@@ -105,8 +112,9 @@
                                     <i class="fi-rr-user"></i>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a class="dropdown-item" asp-action="Register" asp-controller="User">Register</a></li>
-                                    <li><a class="dropdown-item" asp-action="Login" asp-controller="User">Login</a></li>
+                                   @* <li><a class="dropdown-item" asp-action="Register" asp-controller="User">Register</a></li>
+                                    <li><a class="dropdown-item" asp-action="Login" asp-controller="User">Login</a></li>*@
+                                      @await Html.PartialAsync("_LoginPartial")
                                 </ul>
                             </div>
                             <!-- Header User End -->
@@ -173,9 +181,12 @@
                                         <i class="fi-rr-user"></i>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a class="dropdown-item" asp-action="Register" asp-controller="User">Register</a></li>
-                                        <li><a class="dropdown-item" asp-action="Login" asp-controller="User">Login</a></li>
-                                    </ul>
+                                        @*<li><a class="dropdown-item" asp-action="Register" asp-controller="User">Register</a></li>
+                                        <li><a class="dropdown-item" asp-action="Login" asp-controller="User">Login</a></li>*@
+                                       @* <li><a class="dropdown-item" asp-page="Areas\Identity\Pages\Account\Login.cshtml>Login</a></li>*@
+                                        @await Html.PartialAsync("_LoginPartial")
+                                    
+                                   </ul>
                                 </div>
                                 <!-- Header User End -->
                                 <!-- Header wishlist Start -->
@@ -927,6 +938,7 @@
             <div class="ec-cart-top">
                 <div class="ec-cart-title">
                     <span class="cart_title">My Cart</span>
+
                     <button class="ec-close">×</button>
                 </div>
                 <ul class="eccart-pro-items">
@@ -953,7 +965,7 @@
                     </table>
                 </div>
                 <div class="cart_btn">
-                    <a href="cart.html" class="btn btn-primary">View Cart</a>
+                    <a asp-action="ViewCart" asp-controller="Order" class="btn btn-primary">View Cart</a>
                     <a href="checkout.html" class="btn btn-secondary">Checkout</a>
                 </div>
             </div>
@@ -1418,6 +1430,7 @@
             </div>
         </div>
     </div>
+    
     @RenderBody()
 
 
@@ -1592,9 +1605,11 @@
             new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
         }
     </script>
+
     <!-- Main Js -->
     <script src="~/js/vendor/index.js"></script>
     <script src="~/js/main.js"></script>
+    @RenderSection("Scripts", required: false)
 
     </body>
 </html>
